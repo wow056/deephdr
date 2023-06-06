@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">YOLOv5</string>
+    <string name="app_name">Deep HDR</string>
     <string name="image_view">Image View</string>
-    <string name="detect">Detect</string>
+    <string name="detect">Convert</string>
     <string name="run_model">Running the model...</string>
     <string name="restart">Restart</string>
     <string name="select">Select</string>
