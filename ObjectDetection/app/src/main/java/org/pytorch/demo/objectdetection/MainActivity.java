@@ -214,15 +214,15 @@ public class MainActivity extends AppCompatActivity implements Runnable {
         // draw generated 1 * 3 * 640 * 640 image tensor to bitmap
         final int width = (int) outputTensor.shape()[2];
         final int height = (int) outputTensor.shape()[3];
-        byte[] bytes = outputTensor.getDataAsUnsignedByteArray();
+        float[] bytes = outputTensor.getDataAsFloatArray();
         Bitmap outputBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         for (int c = 0; c < height; c++) {
             for (int r = 0; r < width; r++) {
                 int idx = c * width + r;
                 int a = 255;
-                int r1 = bytes[idx] & 0xff;
-                int g = bytes[idx + width * height] & 0xff;
-                int b = bytes[idx + width * height * 2] & 0xff;
+                float r1 = bytes[idx] * 255f;
+                float g = bytes[idx + width * height] * 255f;
+                float b = bytes[idx + width * height * 2] * 255f;
                 outputBitmap.setPixel(r, c, Color.argb(a, r1, g, b));
             }
         }
